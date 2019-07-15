@@ -1,2 +1,3 @@
 # QuickCalc
-Calculations using simple physics scenarios
+
+Quickie Physics
