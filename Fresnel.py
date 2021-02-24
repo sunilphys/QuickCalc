@@ -11,7 +11,8 @@ n1=1.00
 n2=1.50
 n=n2/n1
 AngB=180/np.pi*np.arctan(n)
-AngC=180/np.pi*np.arcsin(n)
+if n<=1:
+  AngC=180/np.pi*np.arcsin(n)
 deg2rad=np.pi/180
 AngXrad=deg2rad*0.0
 x=np.linspace(0,90,360,endpoint=True)
@@ -45,7 +46,8 @@ plt.ylabel("Coefficients of reflection/transmission")
 plt.xlim(0,90)
 #plt.ylim(-1,1)
 plt.axvline(AngB,color='grey', linestyle='--',linewidth=1)
-plt.axvline(AngC,color='grey', linestyle='--',linewidth=1)
+if n<=1:
+  plt.axvline(AngC,color='grey', linestyle='--',linewidth=1)
 plt.axhline(0,color='grey', linestyle='--',linewidth=1)
 plt.axhline(1,color='grey', linestyle='--',linewidth=1)
 #plt.axvline(41.81,color='g', linestyle='--')
@@ -66,7 +68,8 @@ plt.ylabel("Reflectance/Transmittance")
 plt.xlim(0,90)
 #plt.ylim(0,1)
 plt.axvline(AngB,color='grey', linestyle='--',linewidth=1)
-plt.axvline(AngC,color='grey', linestyle='--',linewidth=1)
+if n<=1:
+  plt.axvline(AngC,color='grey', linestyle='--',linewidth=1)
 plt.axhline(0,color='grey', linestyle='--',linewidth=1)
 plt.axhline(1,color='grey', linestyle='--',linewidth=1)
 #plt.axvline(41.81,color='g', linestyle='--')
@@ -75,7 +78,8 @@ plt.legend()
 plt.savefig("RTn0.7.pdf")
 plt.show()
 print("The Brewster angle is: %3.2f" %(AngB))
-print("The critical angle is: %3.2f" %(AngC))
+if n<=1:
+  print("The critical angle is: %3.2f" %(AngC))
 print("Reflectance for external TE reflection = %3.3f" % ReX)
 print("Reflectance for external TM reflection = %3.3f" % RmX)
 print("Transmittance for external TE reflection = %3.3f" % TeX)
